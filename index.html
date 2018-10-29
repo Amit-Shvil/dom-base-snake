@@ -1,0 +1,59 @@
+<html>
+<head>
+    <script src="./snake.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.0.15/dist/howler.min.js"></script>
+    <style >
+        body {
+            display: flex;
+        }
+
+        .row {
+            display: flex;
+        }
+        .cell {
+            width: 35px;
+            height: 35px;
+            /* border: 1px solid gray; */
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+
+        }
+        .boom {
+            background-image: url('./boom.jpg');
+        }
+        .bite {
+            background-image: url('./auch.jpg');
+        }
+        .snakePart {
+            background-image: url('./body.jpg');
+        }
+        .eating {
+            background-image: url('./eat.jpg');
+        }
+        .snakeHead {
+            background-image: url('./head.jpg');
+        }
+        .food-1{
+            background-image: url('./food-1.jpg');
+        }
+        .food-2 {
+            background-image: url('./food-2.jpg');
+        }
+        .food-3 {
+            background-image: url('./food-3.jpg');
+        }
+        /* .board {
+            max-width: 40;
+            border: 1px solid black;
+        } */
+    </style>
+</head>
+<body>
+<div id="board" class="board"></div>
+<button onclick="startNewGame()">התחל</button>
+</body>
+</html>
+
+        

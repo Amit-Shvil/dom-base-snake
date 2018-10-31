@@ -1,7 +1,10 @@
 <html>
 <head>
-    <script src="./snake.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/howler@2.0.15/dist/howler.min.js"></script>
+    <script src="./soundManager.js" ></script>
+    <script src="./gameView.js" ></script>
+    <script src="./snake.js" ></script>
+    
     <style >
         body {
             display: flex;
@@ -13,7 +16,7 @@
         .cell {
             width: 35px;
             height: 35px;
-            /* border: 1px solid gray; */
+            border: 1px solid gray;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -23,17 +26,33 @@
         .boom {
             background-image: url('./boom.jpg');
         }
-        .bite {
-            background-image: url('./auch.jpg');
-        }
+        
         .snakePart {
             background-image: url('./body.jpg');
+            border: 1px solid gray;
+            background-color: gray;
+            width: 35px;
+            height: 35px;
+        }
+        .bite {
+            background-image: url('./auch.jpg');
         }
         .eating {
             background-image: url('./eat.jpg');
         }
         .snakeHead {
             background-image: url('./head.jpg');
+            border: 1px solid gray;
+            background-color: gray;
+            width: 35px;
+            height: 35px;
+            
+        }
+        .food {
+            border: 1px solid gray;
+            background-color: brown;
+            width: 35px;
+            height: 35px;
         }
         .food-1{
             background-image: url('./food-1.jpg');
@@ -51,6 +70,8 @@
     </style>
 </head>
 <body>
+<div id="stat-modal"></div>    
+<div id="end-modal"></div>    
 <div id="board" class="board"></div>
 <button onclick="startNewGame()">התחל</button>
 </body>

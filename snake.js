@@ -10,11 +10,11 @@ Dir.UP = 'UP';
 
 class Game {
   constructor() {
-    
+    this.soundMgr = new SoundManager();
     this.numOfFood = 9;  
     this.bord = null;
     this.gameInterval = null;
-    this.snake = [];
+    this.snake = [];    
     this.dir = Dir.RIGHT;
     this.bordSize = 20;
     this.foods = [];
@@ -31,11 +31,12 @@ class Game {
       this.init();
   }
   init() {
-    (this.sound)? this.sound.stop() : null;
-    this.sound = new Howl({
-        src: ['./bg-sound.mp3']
-      });
-      this.sound.play();
+    this.soundMgr.startBg();
+    // (this.sound)? this.sound.stop() : null;
+    // this.sound = new Howl({
+    //     src: ['./bg-sound.mp3']
+    //   });
+    //   this.sound.play();
     this.createSnake();
     this.initFood();
     this.startGame();
@@ -147,6 +148,7 @@ class Game {
     return this.snake[this.snake.length - 1];
   }
   gameOver() {
+    this.soundMgr.stopBg();
     clearInterval(this.gameInterval);
   }
   draw() {
@@ -196,6 +198,7 @@ class Game {
       this.foods.splice(eatedFood, 1);
       this.snakHead.value = 'eating';
       this.createFood();
+      this.soundMgr.eat();
     }
     return isGameOver;
 

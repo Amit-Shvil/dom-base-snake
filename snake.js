@@ -17,7 +17,7 @@ class Game {
     this.gameInterval = null;
     this.snake = [];    
     this.dir = Dir.RIGHT;
-    this.bordSize = 20;
+    this.bordSize = 17;
     this.foods = [];
   }
   fistTimeOnly() {

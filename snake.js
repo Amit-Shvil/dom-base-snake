@@ -2,7 +2,6 @@
 //Have 2 version of the game 
 //Show itays the before content.
 
-
 class Dir {};
 Dir.LEFT = 'left';
 Dir.RIGHT = 'right';
@@ -12,10 +11,10 @@ Dir.UP = 'UP';
 class Game {
   constructor() {
     this.soundMgr = new SoundManager();
-    this.numOfFood = 9;  
+    this.numOfFood = 23;
     this.bord = null;
     this.gameInterval = null;
-    this.snake = [];    
+    this.snake = [];
     this.dir = Dir.RIGHT;
     this.bordSize = 17;
     this.foods = [];
@@ -23,41 +22,27 @@ class Game {
   fistTimeOnly() {
     this.ceateBoard();
   }
-  restart(){
-    
+  restart() {
+
     this.snake = [];
     this.dir = Dir.RIGHT;
     this.foods = [];
-      this.gameOver();
-      this.init();
+    this.gameOver();
+    this.init();
   }
   init() {
     this.soundMgr.startBg();
-    // (this.sound)? this.sound.stop() : null;
-    // this.sound = new Howl({
-    //     src: ['./bg-sound.mp3']
-    //   });
-    //   this.sound.play();
     this.createSnake();
     this.initFood();
     this.startGame();
     this.draw();
   }
   initFood() {
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();
-    this.createFood();   
+    for (let index = 0; index < 23; index++) {
+      this.createFood();
+    }
   }
- 
+
   startGame() {
     this.gameInterval = setInterval(() => this.onFrame(), 700);
     document.onkeydown = () => this.onKey();
@@ -76,24 +61,25 @@ class Game {
   }
 
   createFood() {
-      let pos = this.getEmptyRandomPlace();
-      pos.value = this.createRandomInt(1,this.numOfFood);
-      this.foods.push(pos);
+    let pos = this.getEmptyRandomPlace();
+    pos.value = this.createRandomInt(1, this.numOfFood);
+    this.foods.push(pos);
   }
   createRandomInt(from, to) {
     return Math.floor((Math.random() * to) + from);
   }
   getEmptyRandomPlace() {
-        const row = Math.floor(Math.random() * Math.floor(this.bordSize));
-        const colm = Math.floor(Math.random() * Math.floor(this.bordSize));
-        if ( this.snake.includes((pos) => {
-            return pos.row == row && pos.colm === colm;
-        })) {
-            return getEmptyRandomPlace();
-        }
-        else {
-            return {row, colm};
-        }
+    const row = Math.floor(Math.random() * Math.floor(this.bordSize));
+    const colm = Math.floor(Math.random() * Math.floor(this.bordSize));
+    const isTaken = this.snake.some(pos => pos.row == row && pos.colm === colm) || this.foods.some(pos => pos.row == row && pos.colm === colm)
+    if (isTaken) {
+      return this.getEmptyRandomPlace();
+    } else {
+      return {
+        row,
+        colm
+      };
+    }
   }
   createSnake() {
     let pos = {
@@ -106,7 +92,7 @@ class Game {
       pos.value = 'snakePart';
       this.snake.push(pos);
     }
-    
+
   }
   drawSnake() {
     this.snake.forEach((pos) => {
@@ -265,6 +251,7 @@ class Game {
 
 window.game = new Game();
 document.addEventListener('DOMContentLoaded', () => game.fistTimeOnly());
+
 function startNewGame() {
-    window.game.restart();
+  window.game.restart();
 }

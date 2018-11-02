@@ -176,6 +176,7 @@ class Game {
     if (this.isEeatingMyself()) {
       isGameOver = true;
       this.snakHead.value = 'bite';
+      this.soundMgr.auchPlay()
     }
     const eatedFood = this.foods.findIndex((food) => {
       return this.isEqual(food, newPos);

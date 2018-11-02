@@ -15,12 +15,14 @@ class SoundManager {
       volume: 0.5
     });
     this.auch = new Howl({
-      src: ['./bg-sound.mp3'],
+      src: ['./sound/auch.mp3'],
       loop: false,
       volume: 0.5
     });
   }
-
+  auchPlay() {
+    this.auch.play();
+  }
   stopBg() {
     (this.bg) ? this.bg.stop(): null;
   }

@@ -11,7 +11,7 @@ Dir.UP = 'UP';
 class Game {
   constructor() {
     this.soundMgr = new SoundManager();
-    this.numOfFood = 23;
+    this.numOfFood = 21;
     this.bord = null;
     this.gameInterval = null;
     this.snake = [];

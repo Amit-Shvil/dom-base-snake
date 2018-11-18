@@ -11,7 +11,7 @@ Dir.UP = 'UP';
 class Game {
   constructor() {
     this.soundMgr = new SoundManager();
-    this.numOfFood = 21;
+    this.numOfFood = 7;
     this.bord = null;
     this.gameInterval = null;
     this.snake = [];
@@ -166,6 +166,7 @@ class Game {
     const newPos = this.getNextPos(this.snakHead, this.dir);
     if (!this.isInBoard(newPos)) {
       this.snakHead.value = 'boom';
+      this.soundMgr.playBoom();
       isGameOver = true;
       return isGameOver;
     }
@@ -183,10 +184,10 @@ class Game {
     });
     if (eatedFood !== -1) {
       this.snake.unshift(removedPos);
+      this.soundMgr.playKey(this.foods[eatedFood].value);
       this.foods.splice(eatedFood, 1);
       this.snakHead.value = 'eating';
       this.createFood();
-      this.soundMgr.eat();
     }
     return isGameOver;
 

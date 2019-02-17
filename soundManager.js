@@ -55,7 +55,81 @@ class SoundManager {
       loop: false,
       volume: 0.5
     });
-    
+    this.foo8 = new Howl({
+      src: ['./sound/8.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo9 = new Howl({
+      src: ['./sound/9.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo10 = new Howl({
+      src: ['./sound/10.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo11 = new Howl({
+      src: ['./sound/11.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo12 = new Howl({
+      src: ['./sound/12.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo13 = new Howl({
+      src: ['./sound/13.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo14 = new Howl({
+      src: ['./sound/14.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo15 = new Howl({
+      src: ['./sound/15.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo16 = new Howl({
+      src: ['./sound/16.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo17 = new Howl({
+      src: ['./sound/17.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo18 = new Howl({
+      src: ['./sound/18.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo19 = new Howl({
+      src: ['./sound/19.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo20 = new Howl({
+      src: ['./sound/20.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo21 = new Howl({
+      src: ['./sound/21.mp3'],
+      loop: false,
+      volume: 0.5
+    });
+    this.foo22 = new Howl({
+      src: ['./sound/22.mp3'],
+      loop: false,
+      volume: 0.5
+    });
   }
   auchPlay() {
     this.auch.play();

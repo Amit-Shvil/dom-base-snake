@@ -6,8 +6,17 @@
     <script src="./snake.js" ></script>
     
     <style >
+        .board {
+            background-color: whitesmoke;
+
+        }
         body {
+            /* background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
+            background-image: url('bg.jpg'); */
+            /* filter: blur(8px); */
         }
 
         .row {
@@ -65,13 +74,52 @@
             text-decoration: none;
 
         }
+        .btn {
+            width: 200px;
+            height: 20px;
+            color: red;
+            background-color: blue;
+        }
+        .center {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+        .bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            filter: blur(8px);
+            background-image: url('bg.jpg');
+            /* opacity: 0.5; */
+        }
     </style>
 </head>
 <body>
-<div id="end-modal"></div>    
-<div id="board" class="board"></div>
-<button onclick="startNewGame()">התחל</button>
-<div class="info"><a href="https://github.com/Amit-Shvil/dom-base-snake">Source file</Source></a></div>    
+        <div class="bg"></div>
+<div class="center">    
+    <div>
+        <table>
+            <tr>
+                <td>
+                        <button onclick="startNewGame()" class="btn">התחל</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <div id="board" class="board"></div>
+                </td>
+            </tr>
+        </table>
+        <div class="info"><a href="https://github.com/Amit-Shvil/dom-base-snake">Source file</Source></a></div>    
+</div>
+</div>
 </body>
 </html>
 

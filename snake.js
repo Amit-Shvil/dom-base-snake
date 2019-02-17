@@ -11,7 +11,7 @@ Dir.UP = 'UP';
 class Game {
   constructor() {
     this.soundMgr = new SoundManager();
-    this.numOfFood = 7;
+    this.numOfFood = 22;
     this.bord = null;
     this.gameInterval = null;
     this.snake = [];
@@ -177,13 +177,15 @@ class Game {
     if (this.isEeatingMyself()) {
       isGameOver = true;
       this.snakHead.value = 'bite';
-      this.soundMgr.auchPlay()
+      this.soundMgr.auchPlay();
     }
     const eatedFood = this.foods.findIndex((food) => {
       return this.isEqual(food, newPos);
     });
+
     if (eatedFood !== -1) {
       this.snake.unshift(removedPos);
+      console.log('eatedFood', eatedFood);
       this.soundMgr.playKey(this.foods[eatedFood].value);
       this.foods.splice(eatedFood, 1);
       this.snakHead.value = 'eating';

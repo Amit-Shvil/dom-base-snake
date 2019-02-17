@@ -44,7 +44,7 @@ class Game {
   }
 
   startGame() {
-    this.gameInterval = setInterval(() => this.onFrame(), 600);
+    this.gameInterval = setInterval(() => this.onFrame(), 400);
     document.onkeydown = () => this.onKey();
   }
   onKey(e) {
